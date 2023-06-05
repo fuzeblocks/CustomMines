@@ -1,0 +1,23 @@
+name: CustomsMines
+version: '1.0'
+main: fr.fuzeblocks.customsmines.CustomsMines
+api-version: 1.19
+prefix: CustomMines by fuzeblocks
+load: STARTUP
+authors: [fuzeblocks]
+description: A simple plugin for add mines in minecraft full custom
+commands:
+  setmine:
+    permission: setmine.use
+    usage: Command + args
+    permission-message: You do not have permission for that
+    description: This commande set a mine
+    aliases:
+      - stm
+      - setmines
+      - setmine
+  getmine:
+    permission: getmine.use
+    permission-message: You do not have permission for that
+    description: This commande give you a mine
+
