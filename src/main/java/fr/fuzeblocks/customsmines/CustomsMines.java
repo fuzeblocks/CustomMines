@@ -3,6 +3,7 @@ package fr.fuzeblocks.customsmines;
 import fr.fuzeblocks.customsmines.commands.GetMinesCommand;
 import fr.fuzeblocks.customsmines.commands.SetMinesCommand;
 import fr.fuzeblocks.customsmines.listeners.MineListener;
+import fr.fuzeblocks.customsmines.listeners.MineWalkListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -12,9 +13,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class CustomsMines extends JavaPlugin {
-    private String name;
-    public String getname() {
-        return name;
+    private String type;
+    public String gettype() {
+        return type;
     }
     private final String name1 = Bukkit.getName();
 
@@ -24,6 +25,7 @@ public final class CustomsMines extends JavaPlugin {
         saveDefaultConfig();
         getCommand("setmine").setExecutor(new SetMinesCommand(this));
         Bukkit.getServer().getPluginManager().registerEvents(new MineListener(this), this);
+        Bukkit.getServer().getPluginManager().registerEvents(new MineWalkListener(this), this);
         getCommand("getmine").setExecutor(new GetMinesCommand(this));
         ItemStack item = new ItemStack(Material.STONE_PRESSURE_PLATE);
         ItemMeta meta = item.getItemMeta();

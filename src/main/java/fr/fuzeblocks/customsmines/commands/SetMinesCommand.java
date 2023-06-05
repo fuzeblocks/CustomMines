@@ -36,9 +36,8 @@ public class SetMinesCommand implements CommandExecutor {
                   int x = location.getBlockX();
                   int y = location.getBlockY();
                   int z = location.getBlockZ();
-                  File file = new File(this.customsMines.getDataFolder(),"/data.yml");
-                  YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
-                  FileConfiguration config = customsMines.getConfig();
+                  File file = new File(customsMines.getDataFolder(),"data/data.yml");
+                  YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
                   String key = "Mines." + name;
                   config.set(key + ".Type",type);
                   config.set(key + ".World",world);

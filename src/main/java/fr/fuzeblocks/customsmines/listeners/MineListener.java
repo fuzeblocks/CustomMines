@@ -12,7 +12,6 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.UUID;
 
 import static org.bukkit.Material.STONE_PRESSURE_PLATE;
@@ -20,7 +19,6 @@ import static org.bukkit.Material.STONE_PRESSURE_PLATE;
 
 public class MineListener implements Listener {
     private  final CustomsMines mines;
-
 
 
     public MineListener(CustomsMines inputCustomsMines) {
@@ -38,9 +36,8 @@ public class MineListener implements Listener {
                 int y = location.getBlockY();
                 int z = location.getBlockZ();
                 try {
-                    File file = new File(mines.getDataFolder(), "/getdata.yml");
-                    YamlConfiguration config1 = YamlConfiguration.loadConfiguration(file);
-                    FileConfiguration config = mines.getConfig();
+                    File file = new File(mines.getDataFolder(), "data/getdata.yml");
+                    YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
                     String type = "Normal";
                     String key = "Mines." + type + x;
                     config.set(key + ".World", world.toString());
