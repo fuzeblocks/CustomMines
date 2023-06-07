@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Set;
 
 public class MineWalkListener implements Listener {
-    private CustomsMines plugin;
+    private final CustomsMines plugin;
 
     public MineWalkListener(CustomsMines customsMines) {
         this.plugin = customsMines;
@@ -38,7 +38,7 @@ public class MineWalkListener implements Listener {
 
         Set<String> mine = configurationSection.getKeys(false);
 
-        // Ici on va parcourir tous les portails car on peut récupérer les racines des clés.
+        // Ici, on va parcourir tous les portails, car on peut récupérer les racines des clés.
         for (String name : mine) {
                 String key = "Mines." + name;
                 String world1 = config.getString(key + ".World");
@@ -50,7 +50,6 @@ public class MineWalkListener implements Listener {
                     String gamemode = player.getGameMode().name().toString();
                   if (type.equalsIgnoreCase("NORMAL") && gamemode.equals("SURVIVAL")) {
                       player.spawnParticle(Particle.EXPLOSION_NORMAL,player.getLocation(),2000);
-                      double health = player.getHealth();
                       player.setHealth(0);
                       config.set(key,null);
                       config.save(file);
@@ -66,7 +65,6 @@ public class MineWalkListener implements Listener {
                           newHealth = 0; // Assurez-vous que la santé ne devienne pas négative
                       }
                       player.setHealth(newHealth);
-
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {

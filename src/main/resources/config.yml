@@ -1,6 +1,6 @@
 Messages:
   CreateMines: "A mine has been set in"
-  DeadByMine: "is dead by a mine lvl"
-  Options:
+  DeadByMine: " is dead by a mine lvl"
+Options:
   broadcast-messages-onplayer-dead: true
 
