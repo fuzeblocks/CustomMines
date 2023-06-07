@@ -17,11 +17,11 @@ public final class CustomsMines extends JavaPlugin {
     public String gettype() {
         return type;
     }
-    private final String name1 = Bukkit.getName();
+    private final String name1 = this.getDescription().getName();
 
     @Override
     public void onEnable() {
-        System.out.println("The plugin" + name1 + "has been started");
+        System.out.println("The plugin " + name1 + " has been started");
         saveDefaultConfig();
         getCommand("setmine").setExecutor(new SetMinesCommand(this));
         Bukkit.getServer().getPluginManager().registerEvents(new MineListener(this), this);
@@ -80,7 +80,7 @@ public final class CustomsMines extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        System.out.println("The plugin" + name1 + "has been stopped");
+        System.out.println("The plugin " + name1 + " has been stopped");
     }
 }
 
