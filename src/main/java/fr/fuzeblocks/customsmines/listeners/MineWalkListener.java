@@ -3,6 +3,7 @@ package fr.fuzeblocks.customsmines.listeners;
 import fr.fuzeblocks.customsmines.CustomsMines;
 import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,6 +24,7 @@ public class MineWalkListener implements Listener {
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) throws IOException {
+        FileConfiguration configuration = this.plugin.getConfig();
         Player player = event.getPlayer();
         String world = player.getWorld().getName();
         Location loc = player.getLocation();
@@ -52,7 +54,7 @@ public class MineWalkListener implements Listener {
                       player.setHealth(0);
                       config.set(key,null);
                       config.save(file);
-                      if (player.isDead() && configurationSection.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
+                      if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
                           Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " NORMAL");
                       }
                   }
@@ -67,7 +69,7 @@ public class MineWalkListener implements Listener {
 
                       config.set(key,null);
                       config.save(file);
-                      if (player.isDead() && configurationSection.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
+                      if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
                           Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " LVL1");
                       }
                   }
@@ -81,7 +83,7 @@ public class MineWalkListener implements Listener {
                         player.setHealth(newHealth);
                         config.set(key,null);
                         config.save(file);
-                        if ( player.isDead() && configurationSection.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
+                        if ( player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
                             Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " LVL2");
                         }
                     }
@@ -95,7 +97,7 @@ public class MineWalkListener implements Listener {
                         player.setHealth(newHealth);
                         config.set(key,null);
                         config.save(file);
-                        if ( player.isDead() && configurationSection.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
+                        if ( player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead") == true) {
                             Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " LVL3");
                         }
                     }
