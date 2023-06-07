@@ -54,7 +54,7 @@ public class MineWalkListener implements Listener {
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                          Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " NORMAL");
+                          Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " NORMAL");
                       }
                   }
                   if (type.equalsIgnoreCase("LVL1") && gamemode.equals("SURVIVAL")) {
@@ -68,7 +68,7 @@ public class MineWalkListener implements Listener {
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                          Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " LVL1");
+                          Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " LVL1");
                       }
                   }
                     if (type.equalsIgnoreCase("LVL2") && gamemode.equals("SURVIVAL")) {
@@ -82,7 +82,7 @@ public class MineWalkListener implements Listener {
                         config.set(key,null);
                         config.save(file);
                         if ( player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                            Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " LVL2");
+                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " LVL2");
                         }
                     }
                     if (type.equalsIgnoreCase("LVL3") && gamemode.equals("SURVIVAL")) {
@@ -96,7 +96,7 @@ public class MineWalkListener implements Listener {
                         config.set(key,null);
                         config.save(file);
                         if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                            Bukkit.broadcastMessage(player.getDisplayName() + configurationSection.getString("Messages.DeadByMine") + " LVL3");
+                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " LVL3");
                         }
                     }
                 }
