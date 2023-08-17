@@ -53,7 +53,9 @@ public class MineWalkListener implements Listener {
                       if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
                           player.getWorld().createExplosion(player.getLocation(), 20, true, true);
                       }
-                      player.setHealth(0);
+                      if (!configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                          player.setHealth(0);
+                      }
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
@@ -64,12 +66,16 @@ public class MineWalkListener implements Listener {
                       if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
                           player.getWorld().createExplosion(player.getLocation(), 1, true, true);
                       }
+                      if (!configuration.getBoolean("Options.LandMinecreateExplosion")) {
                       double health = player.getHealth();
                       double newHealth = health - 5;
                       if (newHealth < 0) {
                           newHealth = 0;
+
+                          player.setHealth(newHealth);
                       }
-                      player.setHealth(newHealth);
+                  }
+
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
@@ -80,28 +86,32 @@ public class MineWalkListener implements Listener {
                         if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
                             player.getWorld().createExplosion(player.getLocation(), 5, true, true);
                         }
-                        double health = player.getHealth();
-                        double newHealth = health - 10;
-                        if (newHealth < 0) {
-                            newHealth = 0;
+                        if (!configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                            double health = player.getHealth();
+                            double newHealth = health - 10;
+                            if (newHealth < 0) {
+                                newHealth = 0;
+                                player.setHealth(newHealth);
+                            }
                         }
-                        player.setHealth(newHealth);
-                        config.set(key,null);
-                        config.save(file);
-                        if ( player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " Mine moyenne");
-                        }
+                            config.set(key, null);
+                            config.save(file);
+                            if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
+                                Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " Mine moyenne");
+                            }
                     }
                     if (type.equalsIgnoreCase("Forte") && gamemode.equals("SURVIVAL")) {
                         if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
                             player.getWorld().createExplosion(player.getLocation(), 10, true, true);
                         }
-                        double health = player.getHealth();
-                        double newHealth = health - 15;
-                        if (newHealth < 0) {
-                            newHealth = 0;
+                        if (!configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                            double health = player.getHealth();
+                            double newHealth = health - 15;
+                            if (newHealth < 0) {
+                                newHealth = 0;
+                                player.setHealth(newHealth);
+                            }
                         }
-                        player.setHealth(newHealth);
                         config.set(key,null);
                         config.save(file);
                         if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
