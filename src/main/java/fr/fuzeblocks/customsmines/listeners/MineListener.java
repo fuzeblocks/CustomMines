@@ -30,7 +30,7 @@ public class MineListener implements Listener {
         Player player = event.getPlayer();
         String world = player.getWorld().getName();
         if (event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
-            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE LVL 1")) {
+            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine faible")) {
                 Location location = player.getLocation();
                 int x = location.getBlockX();
                 int y = location.getBlockY();
@@ -40,7 +40,7 @@ public class MineListener implements Listener {
                 try {
                     File file = new File(mines.getDataFolder(), "data/getdata.yml");
                     YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
-                    String type = "LVL1";
+                    String type = "Faible";
                     String key = "Mines." + x;
                     config.set(key + ".World", world);
                     config.set(key + ".X", x);
@@ -48,7 +48,7 @@ public class MineListener implements Listener {
                     config.set(key + ".Z", z);
                     config.set(key + ".Type", type);
                     config.save(file);
-                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE LVL 1") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
+                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine faible") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
                         Item droppedItem = event.getItemDrop();
                         droppedItem.remove();
                         String messages = configuration.getString("Messages.CreateMines");
@@ -58,7 +58,7 @@ public class MineListener implements Listener {
                     throw new RuntimeException(e);
                 }
             }
-            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE")) {
+            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine moyenne")) {
                 Location location = player.getLocation();
                 int x = location.getBlockX();
                 int y = location.getBlockY();
@@ -67,7 +67,7 @@ public class MineListener implements Listener {
                 try {
                     File file = new File(mines.getDataFolder(), "data/getdata.yml");
                     YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
-                    String type = "Normal";
+                    String type = "Moyenne";
                     String key = "Mines." + x;
                     config.set(key + ".World", world);
                     config.set(key + ".X", x);
@@ -75,7 +75,7 @@ public class MineListener implements Listener {
                     config.set(key + ".Z", z);
                     config.set(key + ".Type", type);
                     config.save(file);
-                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
+                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine moyenne") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
                         Item droppedItem = event.getItemDrop();
                         droppedItem.remove();
                         String messages = configuration.getString("Messages.CreateMines");
@@ -85,7 +85,7 @@ public class MineListener implements Listener {
                     throw new RuntimeException(e);
                 }
             }
-            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE LVL 2")) {
+            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine forte")) {
                 Location location = player.getLocation();
                 int x = location.getBlockX();
                 int y = location.getBlockY();
@@ -95,7 +95,7 @@ public class MineListener implements Listener {
                 try {
                     File file = new File(mines.getDataFolder(), "data/getdata.yml");
                     YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
-                    String type = "LVL2";
+                    String type = "Forte";
                     String key = "Mines." + x;
                     config.set(key + ".World", world);
                     config.set(key + ".X", x);
@@ -103,7 +103,7 @@ public class MineListener implements Listener {
                     config.set(key + ".Z", z);
                     config.set(key + ".Type", type);
                     config.save(file);
-                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE LVL 2") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
+                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine forte") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
                         Item droppedItem = event.getItemDrop();
                         droppedItem.remove();
                         String messages = configuration.getString("Messages.CreateMines");
@@ -113,7 +113,7 @@ public class MineListener implements Listener {
                     throw new RuntimeException(e);
                 }
             }
-            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE LVL 3")) {
+            if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine destructrice")) {
                 Location location = player.getLocation();
                 int x = location.getBlockX();
                 int y = location.getBlockY();
@@ -123,7 +123,7 @@ public class MineListener implements Listener {
                 try {
                     File file = new File(mines.getDataFolder(), "data/getdata.yml");
                     YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
-                    String type = "LVL3";
+                    String type = "Destructrice";
                     String key = "Mines." + x;
                     config.set(key + ".World", world);
                     config.set(key + ".X", x);
@@ -131,7 +131,7 @@ public class MineListener implements Listener {
                     config.set(key + ".Z", z);
                     config.set(key + ".Type", type);
                     config.save(file);
-                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMINE LVL 3") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
+                    if (event.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase("§aMine destructrice") && event.getItemDrop().getItemStack().getType() == STONE_PRESSURE_PLATE) {
                         Item droppedItem = event.getItemDrop();
                         droppedItem.remove();
                         String messages = configuration.getString("Messages.CreateMines");

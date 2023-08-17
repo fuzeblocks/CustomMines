@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Set;
 
 public class MineWalkListener implements Listener {
@@ -48,55 +49,63 @@ public class MineWalkListener implements Listener {
                 double z = config.getDouble(key + ".Z");
                 if (X == x && Y == y && Z == z && world.equals(world1)) {
                     String gamemode = player.getGameMode().name().toString();
-                  if (type.equalsIgnoreCase("NORMAL") && gamemode.equals("SURVIVAL")) {
-                      player.spawnParticle(Particle.EXPLOSION_NORMAL,player.getLocation(),2000);
+                  if (type.equalsIgnoreCase("Destructrice") && gamemode.equals("SURVIVAL")) {
+                      if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                          player.getWorld().createExplosion(player.getLocation(), 20, true, true);
+                      }
                       player.setHealth(0);
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                          Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " NORMAL");
+                          Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " Mine destructrice");
                       }
                   }
-                  if (type.equalsIgnoreCase("LVL1") && gamemode.equals("SURVIVAL")) {
-                      player.spawnParticle(Particle.EXPLOSION_NORMAL,player.getLocation(),2000);
+                  if (type.equalsIgnoreCase("Faible") && gamemode.equals("SURVIVAL")) {
+                      if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                          player.getWorld().createExplosion(player.getLocation(), 1, true, true);
+                      }
                       double health = player.getHealth();
                       double newHealth = health - 5;
                       if (newHealth < 0) {
-                          newHealth = 0; // Assurez-vous que la santé ne devienne pas négative
+                          newHealth = 0;
                       }
                       player.setHealth(newHealth);
                       config.set(key,null);
                       config.save(file);
                       if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                          Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " LVL1");
+                          Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " Mine faible");
                       }
                   }
-                    if (type.equalsIgnoreCase("LVL2") && gamemode.equals("SURVIVAL")) {
-                        player.spawnParticle(Particle.EXPLOSION_NORMAL,player.getLocation(),2000);
+                    if (type.equalsIgnoreCase("Moyenne") && gamemode.equals("SURVIVAL")) {
+                        if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                            player.getWorld().createExplosion(player.getLocation(), 5, true, true);
+                        }
                         double health = player.getHealth();
                         double newHealth = health - 10;
                         if (newHealth < 0) {
-                            newHealth = 0; // Assurez-vous que la santé ne devienne pas négative
+                            newHealth = 0;
                         }
                         player.setHealth(newHealth);
                         config.set(key,null);
                         config.save(file);
                         if ( player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " LVL2");
+                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " Mine moyenne");
                         }
                     }
-                    if (type.equalsIgnoreCase("LVL3") && gamemode.equals("SURVIVAL")) {
-                        player.spawnParticle(Particle.EXPLOSION_NORMAL,player.getLocation(),2000);
+                    if (type.equalsIgnoreCase("Forte") && gamemode.equals("SURVIVAL")) {
+                        if (configuration.getBoolean("Options.LandMinecreateExplosion")) {
+                            player.getWorld().createExplosion(player.getLocation(), 10, true, true);
+                        }
                         double health = player.getHealth();
                         double newHealth = health - 15;
                         if (newHealth < 0) {
-                            newHealth = 0; // Assurez-vous que la santé ne devienne pas négative
+                            newHealth = 0;
                         }
                         player.setHealth(newHealth);
                         config.set(key,null);
                         config.save(file);
                         if (player.isDead() && configuration.getBoolean("Options.broadcast-messages-onplayer-dead")) {
-                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " LVL3");
+                            Bukkit.broadcastMessage(player.getDisplayName() + configuration.getString("Messages.DeadByMine") + " Mine forte");
                         }
                     }
                 }

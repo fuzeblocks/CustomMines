@@ -57,6 +57,8 @@ public class SetMinesCommand implements CommandExecutor {
 
 
             }
+        } else {
+            sender.sendMessage("Seul un joueur peut executer cette commande !");
         }
         return true;
     }

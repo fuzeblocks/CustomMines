@@ -22,37 +22,39 @@ public class GetMinesCommand implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission("getmine.use") || player.isOp()) {
                 if (args.length == 1) {
-                    if (args[0].equalsIgnoreCase("LVL1")) {
+                    if (args[0].equalsIgnoreCase("FAI")) {
                         ItemStack itemStack = new ItemStack(Material.STONE_PRESSURE_PLATE, 1);
                         ItemMeta meta = itemStack.getItemMeta();
-                        meta.setDisplayName("§aMINE LVL 1");
+                        meta.setDisplayName("§aMine faible");
                         itemStack.setItemMeta(meta);
                         player.getInventory().addItem(itemStack);
                     }
-                    if (args[0].equalsIgnoreCase("NORMAL")) {
+                    if (args[0].equalsIgnoreCase("MOY")) {
                         ItemStack itemStack = new ItemStack(Material.STONE_PRESSURE_PLATE, 1);
                         ItemMeta meta = itemStack.getItemMeta();
-                        meta.setDisplayName("§aMINE");
+                        meta.setDisplayName("§aMine moyenne");
                         itemStack.setItemMeta(meta);
                         player.getInventory().addItem(itemStack);
                     }
-                    if (args[0].equalsIgnoreCase("LVL2")) {
+                    if (args[0].equalsIgnoreCase("FOR")) {
                         ItemStack itemStack = new ItemStack(Material.STONE_PRESSURE_PLATE, 1);
                         ItemMeta meta = itemStack.getItemMeta();
-                        meta.setDisplayName("§aMINE LVL 2");
+                        meta.setDisplayName("§aMine forte");
                         itemStack.setItemMeta(meta);
                         player.getInventory().addItem(itemStack);
                     }
-                    if (args[0].equalsIgnoreCase("LVL3")) {
+                    if (args[0].equalsIgnoreCase("DES")) {
                         ItemStack itemStack = new ItemStack(Material.STONE_PRESSURE_PLATE, 1);
                         ItemMeta meta = itemStack.getItemMeta();
-                        meta.setDisplayName("§aMINE LVL 3");
+                        meta.setDisplayName("§aMine destructrice");
                         itemStack.setItemMeta(meta);
                         player.getInventory().addItem(itemStack);
                     }
                 }
             }
             return true;
+        } else {
+            sender.sendMessage("Seul un joueur peut executer cette commande !");
         }
         return true;
     }
